@@ -23,7 +23,7 @@ class Login extends React.Component {
     const { emailLocal, password } = this.state;
     const regex = /\S+@\S+\.\S+/;
     const validateEmail = regex.test(emailLocal);
-    const validatePassword = password.length > MIN_PASSWORD_LENGTH;
+    const validatePassword = password.length >= MIN_PASSWORD_LENGTH;
     this.setState({ isBtnDisabled: !(validateEmail && validatePassword) });
   };
 
