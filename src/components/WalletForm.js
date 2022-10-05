@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { requestCurrencies } from '../redux/actions';
+import { requestCurrencies, requestExpenses } from '../redux/actions';
 
 const METHODS = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
 const TAGS = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
+const INITIAL_STATE = {
+  id: 0,
+  value: '',
+  description: '',
+  currency: 'USD',
+  method: 'Dinheiro',
+  tag: 'Alimentação',
+};
 
 class WalletForm extends Component {
   state = {
-    value: 0,
-    description: '',
-    currency: 'USD',
-    method: 'Dinheiro',
-    tag: 'Alimentação',
+    ...INITIAL_STATE,
   };
 
   componentDidMount() {
@@ -22,6 +26,16 @@ class WalletForm extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleClick = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      ...INITIAL_STATE,
+      id: prevState.id + 1,
+    }));
+    const { dispatch } = this.props;
+    return dispatch(requestExpenses(this.state));
   };
 
   render() {
@@ -113,6 +127,14 @@ class WalletForm extends Component {
             ))}
           </select>
         </label>
+
+        <button
+          type="button"
+          onClick={ (event) => this.handleClick(event) }
+        >
+          Adicionar despesa
+        </button>
+
       </form>
     );
   }
