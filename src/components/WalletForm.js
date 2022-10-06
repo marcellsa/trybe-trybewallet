@@ -28,8 +28,7 @@ class WalletForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleClick = (event) => {
-    event.preventDefault();
+  handleClick = () => {
     this.setState((prevState) => ({
       ...INITIAL_STATE,
       id: prevState.id + 1,
@@ -130,7 +129,7 @@ class WalletForm extends Component {
 
         <button
           type="button"
-          onClick={ (event) => this.handleClick(event) }
+          onClick={ this.handleClick }
         >
           Adicionar despesa
         </button>

@@ -7,7 +7,7 @@ class Header extends Component {
     const { expenses } = this.props;
     return expenses.reduce((acc, expense) => (
       acc + (Number(expense.value)
-      * Number(expense.expensesRates[expense.currency].ask))
+      * Number(expense.exchangeRates[expense.currency].ask))
     ), 0);
   };
 

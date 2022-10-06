@@ -37,5 +37,5 @@ export const requestCurrencies = () => async (dispatch) => {
 
 export const requestExpenses = (stateExpenses) => async (dispatch) => {
   const data = await requestAPI();
-  return dispatch(addExpenses({ ...stateExpenses, expensesRates: data }));
+  return dispatch(addExpenses({ ...stateExpenses, exchangeRates: data }));
 };
