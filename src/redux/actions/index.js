@@ -5,6 +5,8 @@ export const GET_CURRENCIES = 'GET_CURRENCIES';
 
 export const ADD_EXPENSES = 'ADD_EXPENSES';
 
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+
 // ACTIONS CREATORS
 export const addEmail = (payload) => ({
   type: ADD_EMAIL,
@@ -18,6 +20,11 @@ export const getCurrencies = (payload) => ({
 
 export const addExpenses = (payload) => ({
   type: ADD_EXPENSES,
+  payload,
+});
+
+export const deleteExpenses = (payload) => ({
+  type: DELETE_EXPENSES,
   payload,
 });
 
