@@ -5,9 +5,13 @@ import { deleteExpenses } from '../redux/actions';
 
 class Table extends Component {
   handleDeleteBtn = (id) => {
-    console.log(id);
     const { dispatch } = this.props;
     dispatch(deleteExpenses(id));
+  };
+
+  handleEditBtn = (id) => {
+    const { dispatch } = this.props;
+    dispatch(editExpenses(id));
   };
 
   render() {
@@ -48,6 +52,14 @@ class Table extends Component {
                   onClick={ () => this.handleDeleteBtn(expense.id) }
                 >
                   Excluir
+                </button>
+
+                <button
+                  data-testid="edit-btn"
+                  type="button"
+                  onClick={ () => this.handleEditBtn(expense.id) }
+                >
+                  Editar
                 </button>
               </td>
             </tr>
