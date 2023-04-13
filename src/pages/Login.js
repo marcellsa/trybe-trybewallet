@@ -38,45 +38,56 @@ class Login extends React.Component {
   render() {
     const { emailLocal, password, isBtnDisabled } = this.state;
     return (
-      <div>
-        <h3>Login</h3>
-        <form>
-          <label htmlFor="email">
-            Email
-            <input
-              data-testid="email-input"
-              type="email"
-              name="emailLocal"
-              value={ emailLocal }
-              id="email"
-              placeholder="E-mail"
-              onChange={ this.handleChange }
-            />
-          </label>
+      <main className="hero-body is-align-items-center">
 
-          <label htmlFor="password">
-            Senha
-            <input
-              data-testid="password-input"
-              type="password"
-              name="password"
-              value={ password }
-              id="password"
-              placeholder="Senha"
-              onChange={ this.handleChange }
-            />
-          </label>
+        <form className="box">
+
+          <h3 className="title is-3">Login</h3>
+
+          <div className="field">
+            <label htmlFor="email" className="label">Email</label>
+            <div className="control">
+              <input
+                data-testid="email-input"
+                type="email"
+                name="emailLocal"
+                value={ emailLocal }
+                id="email"
+                placeholder="E-mail"
+                onChange={ this.handleChange }
+                className="input is-primary"
+              />
+            </div>
+          </div>
+
+          <div className="field">
+            <label htmlFor="email" className="label">Senha</label>
+            <div className="control">
+              <input
+                data-testid="password-input"
+                type="password"
+                name="password"
+                value={ password }
+                id="password"
+                placeholder="Senha"
+                onChange={ this.handleChange }
+                className="input is-primary"
+              />
+            </div>
+          </div>
 
           <button
             type="button"
             disabled={ isBtnDisabled }
             onClick={ this.handleClick }
+            className="button is-primary disabled"
           >
             Entrar
           </button>
 
         </form>
-      </div>
+
+      </main>
     );
   }
 }
